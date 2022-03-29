@@ -1,0 +1,72 @@
+<!-- <form novalidate #form="ngForm">
+    <input type="hidden" name="PaymentDetailsId" [value]="service.formData.PaymentDetailsId" />
+    <div class="form-group">
+        <label>CARD OWNER NAME</label>
+        <input class="form-control from-control-lg" placeholder="Full Name" 
+        name="cardOwnerName" #cardOwnerName="ngModel" [(ngModel)]="service.formData.CardOwnerName" required maxlength="16" minlength="16">
+    </div>
+
+    
+    <div class="form-group">
+        <label>CARD NUMBER</label>
+        <input class="form-control from-control-lg" placeholder="16 DIGIT CARD NUMBER" 
+        name="CardNumber" #CardNumber="ngModel" [(ngModel)]="service.formData.CardNumber" required maxlength="16" minlength="16">
+    </div>
+
+    <div class="form-group">
+        <div class="form-group col-md-6">
+            <label>CARD ExpirationDate</label>
+            <input class="form-control from-control-lg" placeholder="MM/YY" 
+            name="ExpirationData" #ExpirationData="ngModel" [(ngModel)]="service.formData.ExpirationData" required maxlength="16" minlength="16">
+        </div>
+    
+        <div class="form-group col-md-6">
+            <label>SecurityCode</label>
+            <input class="form-control from-control-lg" placeholder="SecurityCode" 
+            name="password" #SecurityCode="ngModel" [(ngModel)]="service.formData.SecurityCode" required maxlength="16" minlength="16">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+
+
+    </div>
+    
+
+</form> -->
+<!-- <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)"> -->
+
+<form novalidate autocomplete="off" #form="ngForm">
+    <input type="hidden" name="PaymentDetailsId" [value]="service.formData.PaymentDetailsId" />
+    <div class="form-group">
+        
+        <label>CARD OWNER NAME</label>
+        <input class="form-control form-control-lg" placeholder="Full Name" name="CardOwnerName"
+            #CardOwnerName="ngModel" [(ngModel)]="service.formData.CardOwnerName"
+            required [class.invalid]="CardOwnerName.invalid && CardOwnerName.touched">
+    </div>
+    <div class="form-group">
+        <label>CARD NUMBER</label>
+        <input class="form-control form-control-lg" placeholder="16 Digit Card Number" name="CardNumber"
+            #CardNumber="ngModel" [(ngModel)]="service.formData.CardNumber"
+            required maxlength="16" minlength="16" [class.invalid]="CardNumber.invalid && CardNumber.touched">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>SECURITY CODE</label>
+            <input type="password" class="form-control form-control-lg" placeholder="Security Code" name="SecurityCode"
+                #SecurityCode="ngModel" [(ngModel)]="service.formData.SecurityCode"
+                required maxlength="3" minlength="3" [class.invalid]="SecurityCode.invalid && SecurityCode.touched">
+        </div>
+        <div class="form-group col-md-6">
+            <label>VALIDE THROUGH</label>
+            <input class="form-control form-control-lg" placeholder="MM/YY" name="ExpirationData"
+                #ExpirationData="ngModel" [(ngModel)]="service.formData.ExpirationData"
+                required maxlength="5" minlength="5" [class.invalid]="ExpirationData.invalid && ExpirationData.touched">
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+</form>
